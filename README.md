@@ -1,5 +1,7 @@
 # Some Docker Images
 
+[![Docker Image CI](https://github.com/athlonreg/docker-images/actions/workflows/main.yml/badge.svg)](https://github.com/athlonreg/docker-images/actions/workflows/main.yml)
+
 | 序号 |           镜像           |                                特性                                |                                备注                                |
 |:--:|:----------------------:|:----------------------------------------------------------------:|:----------------------------------------------------------------:|
 | 1  |        busybox         |                      用于调试、包含较多的调试工具，如 nc 命令                      |                   来源于 dockerhub，busybox:1.35.0                   |
