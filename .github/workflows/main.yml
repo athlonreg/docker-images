@@ -1,0 +1,180 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Setup QEMU
+      uses: docker/setup-qemu-action@v1.0.2
+
+    - name: Setup Buildx
+      uses: docker/setup-buildx-action@v1.1.2
+
+    - name: Docker Login
+      uses: docker/login-action@v1.8.0
+      with:
+        username: "${{ secrets.DOCKERHUB_USERNAME }}"
+        password: "${{ secrets.DOCKERHUB_PASSWORD }}"
+
+    - name: Build and Push - busybox
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: busybox
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/busybox:1.35.0"
+
+    - name: Build and Push - centos-rpms
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: centos-rpms
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/centos-rpms:7"
+
+    - name: Build and Push - centos
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: centos
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/centos:7"
+
+    - name: Build and Push - elasticsearch-exporter
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: elasticsearch-exporter
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/elasticsearch-exporter:master,canvas1996/elasticsearch-exporter:master"
+
+    - name: Build and Push - grafana
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: grafana
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/grafana:main"
+
+    - name: Build and Push - mongodb-exporter
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: mongodb-exporter
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/mongodb-exporter:2.37"
+
+    - name: Build and Push - mysql-client
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: mysql-client
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/mysql-client:8.0,canvas1996/mysql-client:latest"
+
+    - name: Build and Push - mysqld-exporter
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: mysqld-exporter
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/mysqld-exporter:main"
+
+    - name: Build and Push - neokylin-rpms
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: neokylin-rpms
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/neokylin-rpms:V7"
+
+    - name: Build and Push - nginx
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: nginx
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/nginx:stable-alpine"
+
+    - name: Build and Push - nginx-s3fs
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: nginx-s3fs
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/nginx-s3fs:1.21.6,canvas1996/nginx-s3fs:latest"
+
+    - name: Build and Push - node-exporter
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: node-exporter
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/node-exporter:master"
+
+    - name: Build and Push - postgis15
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: postgis/15
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/postgis:15,canvas1996/postgis:15-master,canvas1996/postgis:15-3.3"
+
+    - name: Build and Push - postgis14
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: postgis/14
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/postgis:14,canvas1996/postgis:14-master,canvas1996/postgis:14-3.3"
+    
+
+    - name: Build and Push - postgis13
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: postgis/13
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/postgis:13,canvas1996/postgis:13-master,canvas1996/postgis:13-3.3"
+
+    - name: Build and Push - postgis12
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: postgis/12
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/postgis:12,canvas1996/postgis:12-master,canvas1996/postgis:12-3.3"
+
+    - name: Build and Push - postgis11
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: postgis/11
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/postgis:11,canvas1996/postgis:11-master,canvas1996/postgis:11-3.3"
+
+    - name: Build and Push - postgres-exporter
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: postgres-exporter
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/postgres-exporter:master"
+
+    - name: Build and Push - redis-exporter
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: redis-exporter
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/redis-exporter:alpine"
