@@ -1,0 +1,1 @@
+FROM percona/mongodb_exporter:2.37

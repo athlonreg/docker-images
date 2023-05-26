@@ -1,0 +1,1 @@
+FROM prometheuscommunity/elasticsearch-exporter:master
