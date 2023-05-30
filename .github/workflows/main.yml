@@ -178,3 +178,91 @@ jobs:
         platforms: linux/arm64,linux/amd64
         push: true
         tags: "canvas1996/redis-exporter:alpine"
+
+    - name: Build and Push - crunchy-pgadmin4
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: crunchy/crunchy-pgadmin4
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/crunchy-pgadmin4:ubi8-4.30-10"
+
+    - name: Build and Push - crunchy-pgbackrest
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: crunchy/crunchy-pgbackrest
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/crunchy-pgbackrest:ubi8-2.41-4"
+
+    - name: Build and Push - crunchy-pgbouncer
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: crunchy/crunchy-pgbouncer
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/crunchy-pgbouncer:ubi8-1.18-0"
+
+    - name: Build and Push - crunchy-postgres-14
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: crunchy/crunchy-postgres-14
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/crunchy-postgres:ubi8-14.7-0"
+
+    - name: Build and Push - crunchy-postgres-14-gis-3.1
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: crunchy/crunchy-postgres-14-gis-3.1
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/crunchy-postgres-gis:ubi8-14.7-3.1-0"
+
+    - name: Build and Push - crunchy-postgres-14-gis-3.2
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: crunchy/crunchy-postgres-14-gis-3.2
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/crunchy-postgres-gis:ubi8-14.7-3.2-0"
+
+    - name: Build and Push - crunchy-postgres-14-gis-3.3
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: crunchy/crunchy-postgres-14-gis-3.3
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/crunchy-postgres-gis:ubi8-14.7-3.3-0"
+
+    - name: Build and Push - crunchy-postgres-15
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: crunchy/crunchy-postgres-15
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/crunchy-postgres:ubi8-15.2-0"
+
+    - name: Build and Push - crunchy-postgres-15-gis-3.3
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: crunchy/crunchy-postgres-15-gis-3.3
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/crunchy-postgres-gis:ubi8-15.2-3.3-0"
+
+    - name: Build and Push - crunchy-postgres-exporter
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: crunchy/crunchy-postgres-exporter
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/crunchy-postgres-exporter:ubi8-5.3.1-0"
+
+    - name: Build and Push - crunchy-upgrade
+      uses: docker/build-push-action@v2.4.0
+      with:
+        context: crunchy/crunchy-upgrade
+        platforms: linux/arm64,linux/amd64
+        push: true
+        tags: "canvas1996/crunchy-upgrade:ubi8-5.3.1-0"
